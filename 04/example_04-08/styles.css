@@ -1,0 +1,37 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Oswald", sans-serif;
+    color: #ebebeb;
+}
+
+.container {
+    background-color: indigo;
+    display: flex;
+    flex-direction: column;
+}
+.item {
+    display: flex;
+    align-items: center;
+    min-height: 6.25rem;
+    padding: 1rem;
+}
+header {
+    background-color: #105b63;
+}
+main {
+    background-color: #fffad5;
+    color: #333;
+}
+aside {
+    background-color: #ffd34e;
+    color: #222;
+}
+aside.aside-two {
+    background-color: #db9e36;
+    color: #333;
+}
+footer {
+    background-color: #bd4932;
+}

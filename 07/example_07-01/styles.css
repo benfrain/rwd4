@@ -1,0 +1,127 @@
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-family: sans-serif;
+    font-size: 2em;
+    --bg: white;
+
+    color: color-contrast(var(--bg) vs #111, #efefef);
+}
+
+b {
+    color: #eee;
+}
+
+body {
+    background-color: #111;
+    padding: 1vw 1vh;
+    box-sizing: border-box;
+}
+
+ol li::marker {
+    color: #fff;
+}
+
+.swatch {
+    width: 100%;
+    height: 200px;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.swatch + .swatch {
+    margin-top: 1rem;
+}
+
+.p3 {
+    --bg: color(display-p3 0 1 0);
+    background-color: var(--bg);
+}
+
+.p3-grad {
+    background: linear-gradient(
+        to right,
+        color(display-p3 0.135 1 0),
+        color(display-p3 1 0.974 0)
+    );
+}
+
+.hsl-lightness {
+    background: linear-gradient(
+        to right,
+        hsl(180deg 100% 45%) 50%,
+        hsl(265deg 100% 45%) 0
+    );
+}
+
+.lch-lightness {
+    background: linear-gradient(
+        to right,
+        lch(50% 300 45) 50%,
+        lch(50% 300 0) 0
+    );
+}
+
+.lch-bright-grad {
+    background: linear-gradient(to right, lch(100% 300 45), lch(100% 300 0));
+}
+
+.lch-grad {
+    background: linear-gradient(
+        to right,
+        lch(67.5345% 42.5 258.2),
+        lch(29.2345% 44.2 27)
+    );
+}
+.oklab-grad {
+    background: linear-gradient(
+        to right,
+        oklab(72.322% -0.0465 -0.115),
+        oklab(40.101% 0.1147 0.0453)
+    );
+}
+
+.lch-hsl {
+    background: linear-gradient(
+        to right,
+        lch(50% 150 45) 50%,
+        hsl(45 100% 50%) 0
+    );
+}
+
+.lch {
+    background: lch(80% 132 135);
+}
+
+.mix {
+    background-color: color-mix(in lch, gold 50%, orange);
+}
+
+.contrast {
+    background-color: #333;
+    color: color-contrast(#333 vs #666, #545454, #777, #f90);
+}
+
+.contrast-no {
+    background-color: #333;
+    color: color-contrast(#333 vs #666, #545454, #777, #f90 to 2.5);
+}
+
+.relative {
+    --bg: #f90;
+    background-color: hsl(from var(--bg) h s calc(l + 10%));
+}
+
+.relative-rgb {
+    --bg: hsl(0 100% 50%);
+    background-color: rgb(from var(--bg) r 100 b / 80%);
+}
+
+@supports not (color: color(display-p3 0.135 1 0)) {
+    .swatch {
+        --bg: black;
+        color: white;
+    }
+}

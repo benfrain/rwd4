@@ -1,0 +1,25 @@
+@layer reset,
+type;
+
+@layer reset {
+    .para {
+        font-size: 2rem;
+        color: hotpink !important;
+        text-decoration-style: dotted;
+        text-decoration: line-through orange !important;
+    }
+}
+
+@layer type {
+    .para {
+        font-size: 1.2rem !important;
+        color: goldenrod !important;
+        text-decoration: solid overline lime !important;
+    }
+}
+
+.para {
+    font-size: 1rem;
+    color: brown;
+    text-decoration: wavy underline lime !important;
+}

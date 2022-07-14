@@ -1,0 +1,14 @@
+.container {
+    display: grid;
+    grid: repeat(2, 200px) / repeat(2, 200px);
+}
+
+[class*="child"] {
+    border: 2px dashed orange;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+}

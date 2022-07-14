@@ -1,0 +1,42 @@
+html,
+body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+
+.court {
+    width: 400px;
+    height: 200px;
+    background-color: rgb(197, 150, 86);
+    position: relative;
+}
+
+.ball {
+    --ballSize: 18px;
+    --ball-border: #fff;
+    --ball-color: #df4a23;
+    position: absolute;
+    left: calc(var(--x) - var(--ballSize));
+    top: calc(var(--y) - var(--ballSize));
+    width: var(--ballSize);
+    height: var(--ballSize);
+    background-color: var(--ball-color);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--ball-border);
+    animation: 0.5s ease infinite alternate forwards bounce;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}

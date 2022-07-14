@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Dialog element example</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            dialog {
+                border-radius: 10px;
+            }
+            dialog::backdrop {
+                animation: fade 0.5s ease forwards;
+            }
+            button {
+                height: 40px;
+                padding: 5px 10px;
+            }
+            button:focus {
+                outline: 2px solid #f90;
+            }
+            @keyframes fade {
+                0% {
+                    background-color: transparent;
+                }
+                100% {
+                    background-color: rgb(0 57 24 / 0.6);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <button id="launchDialog">Where is the dialog?</button>
+        <p id="formResult"></p>
+        <dialog id="dialogEle">
+            <form method="dialog">
+                <h1>How about this? A native Dialog.</h1>
+                <p>So, only thing left to do is dismiss me.</p>
+                <button value="Dismissed!">Dismiss Dialog</button>
+            </form>
+        </dialog>
+        <script>
+            const dialogEle = document.getElementById("dialogEle");
+            const launchBtn = document.getElementById("launchDialog");
+            const formResult = document.getElementById("formResult");
+            launchBtn.addEventListener("click", () => dialogEle.showModal());
+            dialogEle.addEventListener("close", () => {
+                formResult.textContent = dialogEle.returnValue;
+            });
+        </script>
+    </body>
+</html>

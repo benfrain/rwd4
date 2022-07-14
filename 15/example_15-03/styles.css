@@ -1,0 +1,92 @@
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 0 10px;
+}
+
+a {
+    color: #fff;
+    background-color: #666;
+    text-decoration-style: double;
+}
+
+.Scroll_Wrapper {
+    display: grid;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    gap: 0 20px;
+    grid-template-rows: auto auto;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    /* standards way, currently only implemented by Firefox */
+    scrollbar-color: #b5b5b5 #616161;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.Scroll_Wrapper::-webkit-scrollbar {
+    width: 25px;
+    background-color: #616161;
+}
+
+.Scroll_Wrapper::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 12px;
+}
+
+.Item {
+    grid-row: 1/-1;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: 100px 200px;
+    gap: 0 20px;
+    margin: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.Item img {
+    border: 1px solid #333;
+    aspect-ratio: auto;
+    width: 100%;
+    display: block;
+    grid-row: 1/-1;
+    grid-column: 1;
+}
+.Item p {
+    grid-row: 1;
+    line-height: 1.2;
+    grid-column: 2;
+    margin-block: 0;
+}
+
+.Caption {
+    font-size: 1.2rem;
+    grid-row: 2;
+    grid-column: 1/-1;
+    margin: 0;
+}
+
+em {
+    font-size: 0.8em;
+    color: #ccc;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.ScrollBtn {
+    margin: 20px 0 0 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    min-height: 35px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
