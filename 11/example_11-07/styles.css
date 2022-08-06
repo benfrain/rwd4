@@ -18,8 +18,6 @@ body {
 
 /*remove default button styling*/
 .off-canvas-launcher {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     border: 1px solid #297d94;
     border-radius: 4px;
@@ -69,7 +67,6 @@ body {
     .js .navigation-menu {
         position: absolute;
         top: 0;
-        left: 0;
         bottom: 0;
         width: 200px;
         left: -200px;
@@ -78,16 +75,14 @@ body {
     .js .OffCanvas-Active .navigation-menu {
         left: 0;
     }
-    @supports (transform: translate3d(-200px, 0, 0)) {
-        /*where transform3d is supported reset left and pull off screen with a translate3d instead*/
-        .js .navigation-menu {
-            left: auto;
-            transform: translate3d(-200px, 0, 0);
-        }
-        /*when transform3d is supported and the menu button is clicked, reset the nav to default position*/
-        .js .OffCanvas-Active .navigation-menu {
-            transform: translate3d(0, 0, 0);
-        }
+    /*where transform3d is supported reset left and pull off screen with a translate3d instead*/
+    .js .navigation-menu {
+        left: auto;
+        transform: translate3d(-200px, 0, 0);
+    }
+    /*when transform3d is supported and the menu button is clicked, reset the nav to default position*/
+    .js .OffCanvas-Active .navigation-menu {
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -97,7 +92,8 @@ body {
         left: 0 !important;
         transform: none !important;
     }
-    .off-canvas-launcher {
+    .off-canvas-launcher,
+    .nav-close-button {
         display: none;
     }
     .main-content {
@@ -106,5 +102,11 @@ body {
     }
     .no-js .main-content {
         margin-left: 0;
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .navigation-menu {
+        transition: none;
     }
 }

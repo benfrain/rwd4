@@ -1,17 +1,6 @@
 // First of all, remove the no-js class:
 document.documentElement.classList.remove("no-js");
 
-/*
- *
- * Reviews carousel
- * Need:
- * nextBtn
- * prevBtn
- * container
- * [items]
- *
- */
-
 class easyCarousel {
     nextBtn: HTMLElement;
     prevBtn: HTMLElement;
@@ -108,29 +97,18 @@ if (imgNext && imgPrev && imgContainer && imgItems) {
 
 const codeDropBtn = document.querySelector("button.rwd-Nav_Link");
 const downloadPanel = document.getElementById("downloadPanel");
-const downloadPanelClickMask = document.getElementById(
-    "downloadPanelClickMask"
-);
+const downloadDismiss = document.querySelector(".rwd-DownloadPanel_Dismiss");
 
-if (codeDropBtn && downloadPanel && downloadPanelClickMask) {
+if (codeDropBtn && downloadPanel && downloadDismiss) {
     codeDropBtn.addEventListener("click", () => {
-        downloadPanel.setAttribute(
-            "aria-hidden",
-            downloadPanel.getAttribute("aria-hidden") === "true"
-                ? "false"
-                : "true"
-        );
-        downloadPanelClickMask.setAttribute(
-            "data-active",
-            downloadPanelClickMask.getAttribute("data-active") === "true"
-                ? "false"
-                : "true"
-        );
+        downloadPanel.open ? downloadPanel.close() : downloadPanel.showModal();
     });
-
-    downloadPanelClickMask.addEventListener("click", () => {
-        downloadPanel.setAttribute("aria-hidden", "true");
-        downloadPanelClickMask.setAttribute("data-active", "false");
+    downloadDismiss.addEventListener("click", () => {
+        downloadPanel.close();
+    });
+    downloadPanel.addEventListener("click", function(e) {
+        console.log(this, e.target);
+        e.target === this && this.close();
     });
 }
 

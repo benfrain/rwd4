@@ -28,6 +28,11 @@ explicitly, e.g.
         url("fonts/Inter-Regular.woff") format("woff");
 }
 
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 120deg;
+    inherits: true;
+}
 /*Our Google hosted font can be used like this:
  *
  *font-family: 'Oswald', sans-serif;
@@ -44,6 +49,18 @@ explicitly, e.g.
             transparent 62%
         ),
         #222;
+    --hl1: #b50404;
+    --hl2: #089df4;
+    --fg1: #fff;
+    --fg2: #e8e8e8;
+    --r1: #ad2486;
+    --r2: #d78437;
+    --r3: #f2bc09;
+    --r4: #aaaf44;
+    --r5: #5da183;
+    --r6: #1d96b9;
+    --r7: #1c61c2;
+    --r8: #ee692c;
 }
 
 html {
@@ -108,10 +125,25 @@ img {
 /*Set a default non-variable font but then enhance if the browser supports a variable font*/
 body {
     font-family: Inter, sans-serif;
-    border-top: 5px solid #b50404;
-    border-bottom: 5px solid #b50404;
+    --borderWidth: 10px;
     background-image: url("img/triangle_bg.png");
     background-color: #fff;
+    border-width: var(--borderWidth) 0 var(--borderWidth) 0;
+    border-image-width: var(--borderWidth) 0 var(--borderWidth) 0;
+    border-image-repeat: round;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        90deg,
+        var(--r7),
+        var(--r6),
+        var(--r5),
+        var(--r4),
+        var(--r3),
+        var(--r2),
+        var(--r1),
+        var(--r8)
+    );
 }
 
 @supports (font-variation-settings: "wdth" 115) {
@@ -164,7 +196,7 @@ body {
         height: 0;
         border-style: solid;
         border-width: 0 7px 14px 7px;
-        border-color: transparent transparent #b50404 transparent;
+        border-color: transparent transparent var(--r5) transparent;
         @media (min-width: 800px) {
             display: none;
         }
@@ -194,7 +226,7 @@ body {
         bottom: 1px;
         border-style: solid;
         border-width: 0 7px 14px 7px;
-        border-color: transparent transparent #b50404 transparent;
+        border-color: transparent transparent var(--r7) transparent;
         @media (min-width: 800px) {
             display: inline-flex;
         }
@@ -240,56 +272,35 @@ body {
     }
 }
 
+dialog {
+    padding: 0;
+    border-radius: 5px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .rwd-DownloadPanel {
-    position: fixed;
-    opacity: 0;
-    pointer-events: none;
     z-index: 5;
     display: flex;
+    min-height: 150px;
+    min-width: 300px;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    filter: drop-shadow(0 0 4px #8e8d8d);
     background-color: #f9f8f8;
     padding: 20px;
-    border-radius: 5px;
-    height: 150px;
-    width: 80vw;
-    max-width: 400px;
-    bottom: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     transition: all 0.3s;
-    @media (min-width: 800px) {
-        height: 120px;
-        position: absolute;
-        width: 260px;
-        right: 0;
-        left: auto;
-        top: calc(100% - 10px);
-        transform: translateY(-10px);
-        @nest &::before {
-            position: absolute;
-            right: 12px;
-            bottom: 100%;
-            content: "";
-            width: 0;
-            height: 0;
-            margin-right: calc(1.2em / 3);
-            border-style: solid;
-            border-width: 0 calc(1em / 1.5) 1em calc(1em / 1.5);
-            border-color: transparent transparent #f9f8f8 transparent;
-        }
-    }
 }
 
-.rwd-DownloadPanel[aria-hidden="false"] {
-    opacity: 1;
-    pointer-events: auto;
-    @media (min-width: 800px) {
-        transform: none;
-    }
+.rwd-DownloadPanel_Dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    border: 0;
+    padding-inline: 10px;
 }
 
 .rwd-DownloadPanel_Title {
@@ -321,23 +332,6 @@ body {
     }
     &:hover {
         color: #b50404;
-    }
-}
-
-.rwd-DownloadPanel_Mask {
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-    &[data-active="true"] {
-        opacity: 1;
-        pointer-events: auto;
     }
 }
 
@@ -383,7 +377,7 @@ body {
     margin-top: 20px;
     padding-top: 25px;
     border-top: 1px solid #424242;
-    a {
+    & a {
         color: #fff;
         text-decoration: underline;
     }
@@ -402,20 +396,8 @@ body {
     }
 }
 
-.rwd-Hero_JumpLink {
-    display: flex;
-    align-items: center;
-    min-height: 45px;
-    padding: 0 15px;
-    border-radius: 33px;
-    border: 1px solid #089df4;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    justify-content: center;
-    max-width: 300px;
+.rwd-Hero_JumpLinks {
     margin: 40px auto;
-    transition: background-color 0.3s;
     @media (min-width: 800px) {
         grid-column: 1/7;
         grid-row: 4;
@@ -424,8 +406,64 @@ body {
     }
 }
 
-.rwd-Hero_JumpLink:hover {
-    background-color: #089df4;
+.rwd-Hero_JumpLink {
+    display: flex;
+    align-items: center;
+    min-height: 65px;
+    padding: 0 15px;
+    border-radius: 33px;
+    /* border: 1px solid #089df4; */
+    border-width: 3px;
+    border-color: #222;
+    border-style: outset;
+    --angle: 120deg;
+    border-image: conic-gradient(
+        from var(--angle),
+        var(--r7),
+        var(--r6),
+        var(--r5),
+        var(--r4),
+        var(--r3),
+        var(--r2),
+        var(--r1),
+        var(--r8)
+    );
+    border-image-slice: 1;
+    border-image-repeat: stretch;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    justify-content: center;
+    transition: filter 0.3s;
+    animation: borderRotate 3s linear infinite forwards;
+    width: clamp(300px, 100%, 500px);
+    &:hover {
+        /* background-color: #089df4; */
+        filter: brightness(1.5);
+    }
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 480deg;
+    }
+}
+
+.rwd-3rd {
+    text-decoration-style: dotted;
+    text-decoration-line: underline;
+    color: #eee;
+    font-size: 12px;
+    transition: all 0.2s;
+    display: flex;
+    min-height: 45px;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        text-decoration-style: wavy;
+        color: var(--r3);
+        color: color(display-p3 1 0.902 0);
+    }
 }
 
 .rwd-Hero_Title {
@@ -517,7 +555,7 @@ body {
     margin-right: calc(1.2em / 3);
     border-style: solid;
     border-width: 0 calc(1em / 2) 1em calc(1em / 2);
-    border-color: transparent transparent #b50404 transparent;
+    border-color: transparent transparent var(--r1) transparent;
 }
 
 .rwd-About {
@@ -546,7 +584,7 @@ body {
     margin-bottom: 19px;
 }
 
-.rwd-About_SVG-3rd {
+.rwd-About_SVG-4th {
     width: 58px;
     height: 60px;
 }
@@ -650,7 +688,7 @@ body {
 .rwd-Buy_Link {
     border-radius: 25px;
     padding: 5px 20px;
-    background-color: #089df4;
+    background-color: var(--r7);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -670,7 +708,7 @@ body {
         }
     }
     &:hover {
-        border-color: #067cc1;
+        border-color: var(--r8);
     }
 }
 
@@ -737,7 +775,7 @@ body {
     margin-right: calc(1.2em / 3);
     border-style: solid;
     border-width: 0 calc(1em / 2) 1em calc(1em / 2);
-    border-color: transparent transparent #b50404 transparent;
+    border-color: transparent transparent var(--r1) transparent;
 }
 
 blockquote {
@@ -779,11 +817,11 @@ blockquote {
     display: inline-flex;
     flex-direction: column;
     vertical-align: middle;
-    a {
+    & a {
         color: #fff;
         text-decoration-line: underline;
         text-decoration-skip: ink;
-        text-decoration-color: #b50404;
+        text-decoration-color: var(--r1);
         text-decoration-thickness: 2px;
         text-underline-offset: 2px;
     }
@@ -879,7 +917,7 @@ blockquote {
         margin-right: calc(1.2em / 3);
         border-style: solid;
         border-width: 0 calc(1em / 2) 1em calc(1em / 2);
-        border-color: transparent transparent #b50404 transparent;
+        border-color: transparent transparent var(--r1) transparent;
     }
 }
 
@@ -935,8 +973,10 @@ blockquote {
     margin: 0 auto;
 }
 
-.rwd-New_Bullet {
-    list-style-image: url("img/triangleRed.svg");
+.rwd-New_Bullet::marker {
+    color: var(--r1);
+    display: inline-block;
+    margin-inline-end: 0.5em;
 }
 
 .rwd-New_ActionBtn {
@@ -1000,7 +1040,7 @@ blockquote {
         margin-right: calc(1.2em / 3);
         border-style: solid;
         border-width: 0 calc(1em / 2) 1em calc(1em / 2);
-        border-color: transparent transparent #b50404 transparent;
+        border-color: transparent transparent var(--r5) transparent;
     }
     @media (min-width: 1000px) {
         grid-row: 1;
@@ -1034,7 +1074,7 @@ blockquote {
 .rwd-Mailing_Form {
     display: flex;
     align-items: center;
-    border: 4px solid #b50404;
+    border: 4px solid var(--r5);
     border-radius: 33px;
     height: 45px;
     background-color: #fff;
@@ -1066,7 +1106,7 @@ blockquote {
 
 .rwd-Mailing_Subscribe {
     outline: 0;
-    color: #b50404;
+    color: #333;
     font-family: "Oswald", sans-serif;
     font-size: 12px;
     display: flex;
@@ -1107,7 +1147,7 @@ blockquote {
         margin-right: calc(1.2em / 3);
         border-style: solid;
         border-width: 0 calc(1em / 2) 1em calc(1em / 2);
-        border-color: transparent transparent #b50404 transparent;
+        border-color: transparent transparent var(--r8) transparent;
     }
     @media (min-width: 1000px) {
         font-size: 1.8rem;
@@ -1152,7 +1192,7 @@ blockquote {
     content: counter(li);
     font-size: 25px;
     font-family: "Oswald", sans-serif;
-    color: #b50404;
+    color: var(--r8);
     @media (min-width: 1000px) {
         left: -20px;
     }
@@ -1164,12 +1204,16 @@ blockquote {
     & + & {
         margin-top: 10px;
     }
+    & code {
+        background-color: var(--fg2);
+    }
 }
 
 .rwd-Chapter_Title {
     font-weight: 600;
     font-size: 16px;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .rwd-Footer {
@@ -1215,7 +1259,7 @@ blockquote {
     text-decoration-line: underline;
     text-decoration-skip-ink: auto;
     font-size: 12px;
-    text-decoration-color: #b50404;
+    text-decoration-color: var(--r3);
     text-decoration-thickness: 3px;
     display: inline-flex;
     min-height: 40px;
@@ -1225,10 +1269,10 @@ blockquote {
         display: inline-flex;
         padding: 0 10px;
         border-radius: 4px;
-        background-color: rgba(255, 255, 255, 0.02);
+        background-color: rgba(255, 255, 255, 0.1);
         margin: 5px 0 !important;
         &:hover {
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.2);
         }
     }
 }
@@ -1271,7 +1315,7 @@ blockquote {
 }
 
 .rwd-TopBtn svg {
-    fill: #2196f3;
+    fill: var(--r7);
     @media (min-width: 1000px) {
         width: 60px;
         height: 60px;
