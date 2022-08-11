@@ -96,7 +96,9 @@ if (imgNext && imgPrev && imgContainer && imgItems) {
  */
 
 const codeDropBtn = document.querySelector("button.rwd-Nav_Link");
-const downloadPanel = document.getElementById("downloadPanel");
+const downloadPanel = document.getElementById(
+    "downloadPanel"
+) as HTMLDialogElement;
 const downloadDismiss = document.querySelector(".rwd-DownloadPanel_Dismiss");
 
 if (codeDropBtn && downloadPanel && downloadDismiss) {
