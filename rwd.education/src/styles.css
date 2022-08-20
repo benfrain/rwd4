@@ -337,6 +337,7 @@ dialog::backdrop {
 
 .rwd-Hero_Cover {
     width: 150px;
+    display: block;
     box-shadow: 0 8px 20px -5px #000;
     margin: 20px auto;
     @media (min-width: 800px) {
