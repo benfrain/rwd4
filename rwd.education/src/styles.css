@@ -902,7 +902,7 @@ blockquote {
     display: flex;
     flex-direction: column;
     padding: 6rem 20px 2rem;
-    clip-path: (0 6%, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(0 6%, 100% 0%, 100% 100%, 0 100%);
     background-color: #f9f9f9;
     margin-top: -3rem;
     @media (min-width: 1000px) {
@@ -922,7 +922,7 @@ blockquote {
     align-items: center;
     text-transform: uppercase;
     @media (min-width: 1000px) {
-        grid-column: 2 / span 3;
+        grid-column: 2 / span 2;
         grid-row: 1;
         font-size: 1.8rem;
         align-items: center;
@@ -941,7 +941,7 @@ blockquote {
 
 .rwd-New_IntroText {
     @media (min-width: 1000px) {
-        grid-column: 2 / span 3;
+        grid-column: 2 / span 2;
         grid-row: 2;
         margin-right: 20px;
     }
@@ -952,17 +952,24 @@ blockquote {
     line-height: 1.6rem;
     margin-top: 10px;
     @media (min-width: 1000px) {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
 .rwd-New_Bullets {
+    font-weight: 500;
     @media (min-width: 1000px) {
-        grid-column: 2 / span 3;
+        grid-column: 2 / span 2;
         grid-row: 3;
         padding: 0;
         line-height: 1.6;
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+}
+
+.rwd-New_Bullet {
+    & code {
+        background-color: rgb(0 0 0 / 0.05);
     }
 }
 
@@ -970,9 +977,11 @@ blockquote {
     display: block;
     overflow: hidden;
     @media (min-width: 1000px) {
-        grid-column: span 3 / -2;
+        grid-column: span 4 / -2;
         grid-row: 1 / -1;
-        place-self: center;
+        justify-self: center;
+        align-self: end;
+        margin-inline-start: 40px;
     }
 }
 
@@ -983,6 +992,9 @@ blockquote {
     transform: translateX(var(--Dist));
     display: block;
     margin-bottom: 30px;
+    @media (min-width: 1000px) {
+        margin-bottom: 0;
+    }
 }
 
 .rwd-New_Img {
