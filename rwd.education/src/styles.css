@@ -67,8 +67,6 @@ explicitly, e.g.
     :root {
         --hl1: color(display-p3 1 0 0.218);
         --hl2: color(display-p3 0 0.487 1);
-        --fg1: #fff;
-        --fg2: #e8e8e8;
         --r1: color(display-p3 0.685 0.008 0.805);
         --r2: color(display-p3 1 0.684 0);
         --r3: color(display-p3 1 0.902 0);
@@ -586,7 +584,7 @@ dialog::backdrop {
         grid-template-rows: 1fr 1fr;
         max-width: 1000px;
         margin: 0 auto;
-        gap: 0 20px;
+        gap: 0 40px;
     }
 }
 
