@@ -53,6 +53,7 @@ explicitly, e.g.
     --hl2: #089df4;
     --fg1: #fff;
     --fg2: #e8e8e8;
+    --fg3: #111111;
     --r1: #ad2486;
     --r2: #d78437;
     --r3: #f2bc09;
@@ -610,6 +611,11 @@ dialog::backdrop {
     align-items: center;
     text-align: center;
     margin: 40px 0 0;
+    & p {
+        font-size: 1rem;
+        line-height: 22px;
+        margin-top: 10px;
+    }
 }
 
 .rwd-About_MinorTitle {
@@ -617,12 +623,6 @@ dialog::backdrop {
     font-size: 22px;
     text-transform: uppercase;
     color: #000;
-}
-
-.rwd-About_Minor p {
-    font-size: 1rem;
-    line-height: 22px;
-    margin-top: 10px;
 }
 
 .rwd-About_MajorTitle {
@@ -638,14 +638,24 @@ dialog::backdrop {
     align-items: center;
     text-align: center;
     margin: 40px 0 0;
+    & p {
+        font-size: 1rem;
+        line-height: 22px;
+        margin-top: 10px;
+    }
+    & a {
+        background-color: var(--r3);
+        display: inline-flex;
+        padding: 0 0.2em;
+        color: var(--fg3);
+        font-weight: 700;
+        transition: all 0.2s;
+    }
+    & a:hover {
+        text-decoration-style: wavy;
+        text-decoration: underline;
+    }
 }
-
-.rwd-About_Major p {
-    font-size: 1rem;
-    line-height: 22px;
-    margin-top: 10px;
-}
-
 .rwd-About_Skip {
     color: #b50404;
     font-size: 1rem;
@@ -1207,6 +1217,22 @@ blockquote {
     @media (min-width: 1000px) {
         flex: 0 0 33.33%;
         padding: 0 20px;
+    }
+}
+
+.rwd-Chapter_Download {
+    background-color: var(--r3);
+    display: inline-flex;
+    padding: 0.1em 0.5em;
+    color: var(--fg3);
+    font-size: 0.9em;
+    font-weight: 700;
+    border-radius: 3px;
+    margin-top: 0.5em;
+    border: 1px solid rgb(0 0 0 / 10%);
+    transition: all 0.3s;
+    &:hover {
+        border: 1px solid rgb(0 0 0 / 35%);
     }
 }
 
