@@ -1,1034 +1,885 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
-    <head>
-        <meta charset="utf-8" />
-        <title>Responsive Web Design with HTML5 and CSS by Ben Frain</title>
-        <meta
-            name="Description"
-            content="A website for the book, Responsive Web Design with HTML and CSS, by Ben Frain"
-        />
 
-        <link href="./src/styles.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Oswald:500&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="favicon/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="site.webmanifest" />
-        <link
-            rel="mask-icon"
-            href="favicon/safari-pinned-tab.svg"
-            color="#5bbad5"
-        />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <link rel="shortcut icon" href="favicon/favicon.ico" />
-        <meta name="theme-color" content="#ffffff" />
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Web Design with HTML5 and CSS by Ben Frain</title>
+    <meta name="Description" content="A website for the book, Responsive Web Design with HTML and CSS, by Ben Frain" />
 
-    <body>
-        <svg
-            display="none"
-            width="0"
-            height="0"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
-            <defs>
-                <symbol id="star" viewbox="0 0 44 43">
-                    <path
-                        d="M43.844 16.19l-15.148-2.237L21.922 0l-6.774 13.953L0 16.19l10.961 10.86-2.588 15.336 13.549-7.24 13.548 7.24-2.587-15.335z"
-                        fill="#F5C443"
-                        fill-rule="nonzero"
-                    />
-                </symbol>
-                <symbol id="right-arrow" viewBox="0 0 39 10">
-                    <path
-                        d="M29.507 5.418L.501 5.141l.01-1 29.006.277.038-4 8.956 4.586-9.042 4.414.038-4z"
-                        fill-rule="nonzero"
-                    />
-                </symbol>
-                <symbol id="left-arrow" viewBox="0 0 39 10">
-                    <path
-                        d="M9.51 4.227l29.006.277-.01 1-29.005-.277-.038 4L.506 4.641 9.549.227l-.039 4z"
-                        fill-rule="nonzero"
-                    />
-                </symbol>
-                <symbol id="pages" viewBox="0 0 36 41">
-                    <g fill="var(--r7)" fill-rule="nonzero">
-                        <path
-                            d="M34.297 14.204c-.897-1.217-2.146-2.64-3.519-4.006-1.373-1.366-2.802-2.61-4.025-3.503C24.672 5.175 23.662 5 23.083 5H8.23A3.225 3.225 0 005 8.214v29.572A3.225 3.225 0 008.23 41h24.54c1.781 0 3.23-1.442 3.23-3.214V17.857c0-.576-.176-1.58-1.703-3.653zm-5.346-2.188c1.24 1.234 2.212 2.347 2.93 3.27h-6.214V9.1c.927.715 2.045 1.683 3.284 2.916zm4.466 25.77a.653.653 0 01-.646.643H8.229a.653.653 0 01-.646-.643V8.214c0-.348.296-.643.646-.643h14.854v9c0 .71.579 1.286 1.292 1.286h9.042v19.929z"
-                        />
-                        <path
-                            d="M21.866 1.698C19.773.176 18.758 0 18.176 0H3.247C1.456 0 0 1.445 0 3.22v29.625C0 34.4 1.117 35.7 2.597 36V3.22c0-.349.297-.644.649-.644H23a26.474 26.474 0 00-1.134-.878z"
-                        />
-                    </g>
-                </symbol>
-                <symbol id="code" viewBox="0 0 69 41">
-                    <g fill="var(--r7)" fill-rule="nonzero">
-                        <path
-                            d="M45 33.6l5.538 5.4L69 21 50.538 3 45 8.4 57.923 21zM24 8.4L18.462 3 0 21l18.462 18L24 33.6 11.077 21zM38.015 0L42 1.074 30.985 41 27 39.926 38.015 0z"
-                        />
-                    </g>
-                </symbol>
-                <symbol id="4th" viewBox="0 0 44 41">
-                    <path
-                        d="M0.651989 28.8949L1.42472 24.2344L14.2109 8.27273H18.3523L17.3018 14.5994H14.8991L7.41335 23.9929L7.36506 24.1861H22.0469L21.2621 28.8949H0.651989ZM11.9169 33L12.8466 27.4702L13.3054 25.4297L16.1428 8.27273H21.733L17.6278 33H11.9169Z"
-                        fill="var(--r7)"
-                    />
-                    <path
-                        d="M31.7592 11.6364L31.3477 14.0653H24.8097L25.2212 11.6364H31.7592ZM26.9957 9.15341H30.2951L28.7028 18.7411C28.6713 18.9435 28.6758 19.1077 28.7163 19.2337C28.7612 19.3551 28.8422 19.4428 28.9592 19.4968C29.0806 19.5463 29.229 19.571 29.4045 19.571C29.5259 19.571 29.6609 19.5575 29.8093 19.5305C29.9577 19.5036 30.0702 19.4833 30.1467 19.4698L30.2546 21.8516C30.0792 21.901 29.843 21.9573 29.5462 22.0202C29.2538 22.0877 28.9119 22.1304 28.5206 22.1484C27.7289 22.1799 27.0745 22.0877 26.5572 21.8718C26.0444 21.6514 25.6823 21.3095 25.4709 20.8462C25.264 20.3829 25.2235 19.8027 25.3494 19.1055L26.9957 9.15341ZM36.2427 16.0895L35.2576 22H31.9583L34.2523 8.18182H37.4437L36.5666 13.5391H36.6813C37.0141 12.9003 37.4775 12.401 38.0712 12.0412C38.665 11.6813 39.3532 11.5014 40.1358 11.5014C40.8555 11.5014 41.4583 11.6634 41.9441 11.9872C42.4299 12.3066 42.774 12.7586 42.9764 13.3434C43.1788 13.9281 43.2148 14.6119 43.0843 15.3945L41.9778 22H38.6784L39.677 16.0423C39.767 15.4665 39.6928 15.0167 39.4544 14.6928C39.216 14.369 38.8336 14.207 38.3074 14.207C37.961 14.207 37.6416 14.2835 37.3493 14.4364C37.0614 14.5849 36.8207 14.7985 36.6273 15.0774C36.4339 15.3563 36.3057 15.6937 36.2427 16.0895Z"
-                        fill="var(--r7)"
-                    />
-                </symbol>
-            </defs>
-        </svg>
-        <header class="rwd-MastHead">
-            <a href="/" class="rwd-Logo">
-                <span class="rwd-Logo_Main">RWD</span>
-                <span class="rwd-Logo_Secondary">Education</span>
-            </a>
-            <nav class="rwd-Nav">
-                <a class="rwd-Nav_Link" href="#about">About</a>
-                <a class="rwd-Nav_Link" href="#reviews">Reviews</a>
-                <a class="rwd-Nav_Link" href="#chapters">Chapter List</a>
-                <a class="rwd-Nav_Link" href="#buy">Buy</a>
-                <button
-                    type="button"
-                    class="rwd-Nav_Link"
-                    aria-controls="downloadPanel"
-                >
-                    Code
-                </button>
-                <div
-                    id="downloadPanelClickMask"
-                    class="rwd-DownloadPanel_Mask"
-                    data-active="false"
-                ></div>
-                <dialog id="downloadPanel">
-                    <form method="dialog" class="rwd-DownloadPanel">
-                        <button class="rwd-DownloadPanel_Dismiss" type="reset">
-                            Close
-                        </button>
-                        <p class="rwd-DownloadPanel_Title">
-                            <svg class="rwd-DownloadPanel_SVG">
-                                <use xlink:href="#code"></use>
-                            </svg>
+    <link href="./src/styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald:500&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZSHJQ2RBN"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-                            Download Code
-                        </p>
-                        <div class="rwd-DownloadPanel_Links">
-                            <a
-                                href="https://github.com/PacktPublishing/Responsive-Web-Design-with-HTML5-and-CSS-Third-Edition/archive/master.zip"
-                                class="rwd-DownloadPanel_Link"
-                            >
-                                3rd Edition
-                            </a>
-                            <a
-                                href="https://github.com/benfrain/rwd4/archive/refs/heads/master.zip"
-                                class="rwd-DownloadPanel_Link"
-                            >
-                                4th Edition
-                            </a>
-                        </div>
-                    </form>
-                </dialog>
-            </nav>
-        </header>
-        <main>
-            <section class="rwd-Hero">
-                <picture class="rwd-Hero_Cover">
-                    <source
-                        type="image/avif"
-                        srcset="
+    gtag("config", "G-KZSHJQ2RBN");
+</script>
+
+<body>
+    <svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="star" viewbox="0 0 44 43">
+                <path
+                    d="M43.844 16.19l-15.148-2.237L21.922 0l-6.774 13.953L0 16.19l10.961 10.86-2.588 15.336 13.549-7.24 13.548 7.24-2.587-15.335z"
+                    fill="#F5C443" fill-rule="nonzero" />
+            </symbol>
+            <symbol id="right-arrow" viewBox="0 0 39 10">
+                <path d="M29.507 5.418L.501 5.141l.01-1 29.006.277.038-4 8.956 4.586-9.042 4.414.038-4z"
+                    fill-rule="nonzero" />
+            </symbol>
+            <symbol id="left-arrow" viewBox="0 0 39 10">
+                <path d="M9.51 4.227l29.006.277-.01 1-29.005-.277-.038 4L.506 4.641 9.549.227l-.039 4z"
+                    fill-rule="nonzero" />
+            </symbol>
+            <symbol id="pages" viewBox="0 0 36 41">
+                <g fill="var(--r7)" fill-rule="nonzero">
+                    <path
+                        d="M34.297 14.204c-.897-1.217-2.146-2.64-3.519-4.006-1.373-1.366-2.802-2.61-4.025-3.503C24.672 5.175 23.662 5 23.083 5H8.23A3.225 3.225 0 005 8.214v29.572A3.225 3.225 0 008.23 41h24.54c1.781 0 3.23-1.442 3.23-3.214V17.857c0-.576-.176-1.58-1.703-3.653zm-5.346-2.188c1.24 1.234 2.212 2.347 2.93 3.27h-6.214V9.1c.927.715 2.045 1.683 3.284 2.916zm4.466 25.77a.653.653 0 01-.646.643H8.229a.653.653 0 01-.646-.643V8.214c0-.348.296-.643.646-.643h14.854v9c0 .71.579 1.286 1.292 1.286h9.042v19.929z" />
+                    <path
+                        d="M21.866 1.698C19.773.176 18.758 0 18.176 0H3.247C1.456 0 0 1.445 0 3.22v29.625C0 34.4 1.117 35.7 2.597 36V3.22c0-.349.297-.644.649-.644H23a26.474 26.474 0 00-1.134-.878z" />
+                </g>
+            </symbol>
+            <symbol id="code" viewBox="0 0 69 41">
+                <g fill="var(--r7)" fill-rule="nonzero">
+                    <path
+                        d="M45 33.6l5.538 5.4L69 21 50.538 3 45 8.4 57.923 21zM24 8.4L18.462 3 0 21l18.462 18L24 33.6 11.077 21zM38.015 0L42 1.074 30.985 41 27 39.926 38.015 0z" />
+                </g>
+            </symbol>
+            <symbol id="4th" viewBox="0 0 44 41">
+                <path
+                    d="M0.651989 28.8949L1.42472 24.2344L14.2109 8.27273H18.3523L17.3018 14.5994H14.8991L7.41335 23.9929L7.36506 24.1861H22.0469L21.2621 28.8949H0.651989ZM11.9169 33L12.8466 27.4702L13.3054 25.4297L16.1428 8.27273H21.733L17.6278 33H11.9169Z"
+                    fill="var(--r7)" />
+                <path
+                    d="M31.7592 11.6364L31.3477 14.0653H24.8097L25.2212 11.6364H31.7592ZM26.9957 9.15341H30.2951L28.7028 18.7411C28.6713 18.9435 28.6758 19.1077 28.7163 19.2337C28.7612 19.3551 28.8422 19.4428 28.9592 19.4968C29.0806 19.5463 29.229 19.571 29.4045 19.571C29.5259 19.571 29.6609 19.5575 29.8093 19.5305C29.9577 19.5036 30.0702 19.4833 30.1467 19.4698L30.2546 21.8516C30.0792 21.901 29.843 21.9573 29.5462 22.0202C29.2538 22.0877 28.9119 22.1304 28.5206 22.1484C27.7289 22.1799 27.0745 22.0877 26.5572 21.8718C26.0444 21.6514 25.6823 21.3095 25.4709 20.8462C25.264 20.3829 25.2235 19.8027 25.3494 19.1055L26.9957 9.15341ZM36.2427 16.0895L35.2576 22H31.9583L34.2523 8.18182H37.4437L36.5666 13.5391H36.6813C37.0141 12.9003 37.4775 12.401 38.0712 12.0412C38.665 11.6813 39.3532 11.5014 40.1358 11.5014C40.8555 11.5014 41.4583 11.6634 41.9441 11.9872C42.4299 12.3066 42.774 12.7586 42.9764 13.3434C43.1788 13.9281 43.2148 14.6119 43.0843 15.3945L41.9778 22H38.6784L39.677 16.0423C39.767 15.4665 39.6928 15.0167 39.4544 14.6928C39.216 14.369 38.8336 14.207 38.3074 14.207C37.961 14.207 37.6416 14.2835 37.3493 14.4364C37.0614 14.5849 36.8207 14.7985 36.6273 15.0774C36.4339 15.3563 36.3057 15.6937 36.2427 16.0895Z"
+                    fill="var(--r7)" />
+            </symbol>
+        </defs>
+    </svg>
+    <header class="rwd-MastHead">
+        <a href="/" class="rwd-Logo">
+            <span class="rwd-Logo_Main">RWD</span>
+            <span class="rwd-Logo_Secondary">Education</span>
+        </a>
+        <nav class="rwd-Nav">
+            <a class="rwd-Nav_Link" href="#about">About</a>
+            <a class="rwd-Nav_Link" href="#reviews">Reviews</a>
+            <a class="rwd-Nav_Link" href="#chapters">Chapter List</a>
+            <a class="rwd-Nav_Link" href="#buy">Buy</a>
+            <button type="button" class="rwd-Nav_Link" aria-controls="downloadPanel">
+                Code
+            </button>
+            <div id="downloadPanelClickMask" class="rwd-DownloadPanel_Mask" data-active="false"></div>
+            <dialog id="downloadPanel">
+                <form method="dialog" class="rwd-DownloadPanel">
+                    <button class="rwd-DownloadPanel_Dismiss" type="reset">
+                        Close
+                    </button>
+                    <p class="rwd-DownloadPanel_Title">
+                        <svg class="rwd-DownloadPanel_SVG">
+                            <use xlink:href="#code"></use>
+                        </svg>
+
+                        Download Code
+                    </p>
+                    <div class="rwd-DownloadPanel_Links">
+                        <a href="https://github.com/PacktPublishing/Responsive-Web-Design-with-HTML5-and-CSS-Third-Edition/archive/master.zip"
+                            class="rwd-DownloadPanel_Link">
+                            3rd Edition
+                        </a>
+                        <a href="https://github.com/benfrain/rwd4/archive/refs/heads/master.zip"
+                            class="rwd-DownloadPanel_Link">
+                            4th Edition
+                        </a>
+                    </div>
+                </form>
+            </dialog>
+        </nav>
+    </header>
+    <main>
+        <section class="rwd-Hero">
+            <picture class="rwd-Hero_Cover">
+                <source type="image/avif" srcset="
                             ./src/img/ResponsiveWebDesign_BenFrain_Cover500.avif 350w,
                             ./src/img/ResponsiveWebDesign_BenFrain_Cover700.avif 500w
-                        "
-                        sizes="(min-width: 320px) 50vw, (min-width: 800px) 40vw"
-                    />
+                        " sizes="(min-width: 320px) 50vw, (min-width: 800px) 40vw" />
 
-                    <source
-                        type="image/webp"
-                        srcset="
+                <source type="image/webp" srcset="
                             ./src/img/ResponsiveWebDesign_BenFrain_Cover500.webp 350w,
                             ./src/img/ResponsiveWebDesign_BenFrain_Cover700.webp 500w
-                        "
-                        sizes="(min-width: 320px) 50vw, (min-width: 800px) 40vw"
-                    />
-                    <img
-                        alt="Book cover of Responsive Web Design with HTML5 and CSS by Ben Frain"
-                        src="src/img/ResponsiveWebDesign_BenFrain_Cover500.jpg"
-                    />
-                </picture>
-                <div class="rwd-Hero_TitleAndIntro">
-                    <h1 class="rwd-Hero_Title">
-                        Responsive Web Design
-                        <span class="rwd-Hero_TextGroup">
-                            <i>with</i>
-                            HTML5
-                        </span>
-                        <span class="rwd-Hero_TextGroup">
-                            <i>and</i>
-                            CSS
-                        </span>
-                        <span class="rwd-Hero_Edition">4th Edition</span>
-                    </h1>
-                    <p class="rwd-Hero_Description">
-                        Since 2012, ’
-                        <strong>
-                            Responsive Web Design with HTML5 and CSS
-                        </strong>
-                        ’ by
-                        <a href="https://benfrain.com">Ben Frain</a>
-                        has been Packt Publishing’s best-selling book on
-                        Responsive Web Design. Now there's a completely updated
-                        4th Edition for 2022 and beyond!
-                    </p>
-                    <span class="rwd-Hero_JumpLinks">
-                        <a href="#new" class="rwd-Hero_JumpLink">
-                            What's new in the 4th Edition?
-                        </a>
-                        <a href="https://3rd.rwd.education" class="rwd-3rd">
-                            Looking for the 3rd Edition?
-                        </a>
+                        " sizes="(min-width: 320px) 50vw, (min-width: 800px) 40vw" />
+                <img alt="Book cover of Responsive Web Design with HTML5 and CSS by Ben Frain"
+                    src="src/img/ResponsiveWebDesign_BenFrain_Cover500.jpg" />
+            </picture>
+            <div class="rwd-Hero_TitleAndIntro">
+                <h1 class="rwd-Hero_Title">
+                    Responsive Web Design
+                    <span class="rwd-Hero_TextGroup">
+                        <i>with</i>
+                        HTML5
                     </span>
-                </div>
-            </section>
-
-            <section id="about" class="rwd-About">
-                <div class="rwd-About_Minor">
-                    <svg class="rwd-About_SVG-pages">
-                        <use xlink:href="#pages"></use>
-                    </svg>
-                    <h5 class="rwd-About_MinorTitle">450+ Info Packed Pages</h5>
-                    <p>
-                        CSS Cascade Layers, Container Queries, color functions,
-                        Media Queries, SVG, animations, transforms,
-                        accessibility, Flexbox, Grid + Subgrid, Scroll Snap and
-                        much, much more.
-                    </p>
-                </div>
-                <div class="rwd-About_Minor">
-                    <svg class="rwd-About_SVG-code">
-                        <use xlink:href="#code"></use>
-                    </svg>
-                    <h5 class="rwd-About_MinorTitle">Sample Code</h5>
-                    <p>
-                        Each chapter has associated code examples to follow
-                        along with. You also get the source code for this site
-                        which utilises many of the techniques you'll master
-                        throughout.
-                    </p>
-                </div>
-                <div class="rwd-About_Minor">
-                    <svg class="rwd-About_SVG-4th">
-                        <use xlink:href="#4th"></use>
-                    </svg>
-
-                    <h5 class="rwd-About_MinorTitle">Latest Edition</h5>
-                    <p>
-                        The 4th Edition of Packt’s best-selling Responsive Web
-                        Design title since 2012. Updated for 2022 and beyond,
-                        including all the essential new CSS and HTML features.
-                    </p>
-                </div>
-                <div class="rwd-About_Major">
-                    <h5 class="rwd-About_MajorTitle">Is it for you?</h5>
-                    <p>
-                        Are you a full-stack developer who needs to boost their
-                        front-end skills? Perhaps you work on the front-end and
-                        you need a definitive overview of all modern HTML and
-                        CSS has to offer?
-                    </p>
-
-                    <p>
-                        Maybe you have done a little website building but you
-                        need a deep understanding of how responsive web designs
-                        work and how to achieve them? This is a book for you!
-                    </p>
-                    <p>
-                        Still not sure?
-                        <a href="assets/chapter1.pdf">
-                            Download the first chapter, FREE, now
-                        </a>
-                        and see if it speaks to you.
-                    </p>
-                </div>
-                <div class="rwd-About_Major">
-                    <h5 class="rwd-About_MajorTitle">What will you learn?</h5>
-                    <p>
-                        Understand the most fundamental parts of building a
-                        modern web site or application that will work across all
-                        devices. You'll learn the best approaches for having a
-                        fast and accessible website that works just as well on
-                        the latest iPhone or Android as a desktop computer.
-                    </p>
-                    <p>
-                        The book covers everything from choosing the right tag
-                        to mark up content, to understanding the benefits of
-                        modern image formats like AVIF and WebP &mdash; and
-                        everything essential in-between. It also covers all the
-                        latest features of CSS: Custom Properties, variable
-                        fonts, CSS Grid and much, much more.
-                    </p>
-                </div>
-            </section>
-            <div id="buy" class="rwd-Buy">
-                <a
-                    href="https://www.packtpub.com/product/responsive-web-design-with-html5-and-css-fourth-edition/9781803242712"
-                    class="rwd-Buy_Link rwd-Buy_Link-packt"
-                >
-                    Buy from Packt
-                </a>
-                <a
-                    href="https://www.amazon.com/Responsive-Web-Design-HTML5-CSS/dp/180324271X/"
-                    class="rwd-Buy_Link rwd-Buy_Link-packt"
-                >
-                    Buy from Amazon
-                </a>
-                <a href="#" class="rwd-TopBtn">
-                    <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                    >
-                        <title>circle-up</title>
-                        <path
-                            d="M0 16c0 8.837 7.163 16 16 16s16-7.163 16-16-7.163-16-16-16-16 7.163-16 16zM29 16c0 7.18-5.82 13-13 13s-13-5.82-13-13 5.82-13 13-13 13 5.82 13 13z"
-                        ></path>
-                        <path
-                            d="M22.086 20.914l2.829-2.829-8.914-8.914-8.914 8.914 2.828 2.828 6.086-6.086z"
-                        ></path>
-                    </svg>
-                </a>
+                    <span class="rwd-Hero_TextGroup">
+                        <i>and</i>
+                        CSS
+                    </span>
+                    <span class="rwd-Hero_Edition">4th Edition</span>
+                </h1>
+                <p class="rwd-Hero_Description">
+                    Since 2012, ’
+                    <strong>
+                        Responsive Web Design with HTML5 and CSS
+                    </strong>
+                    ’ by
+                    <a href="https://benfrain.com">Ben Frain</a>
+                    has been Packt Publishing’s best-selling book on
+                    Responsive Web Design. Now there's a completely updated
+                    4th Edition for 2022 and beyond!
+                </p>
+                <span class="rwd-Hero_JumpLinks">
+                    <a href="#new" class="rwd-Hero_JumpLink">
+                        What's new in the 4th Edition?
+                    </a>
+                    <a href="https://3rd.rwd.education" class="rwd-3rd">
+                        Looking for the 3rd Edition?
+                    </a>
+                </span>
             </div>
-            <section id="reviews" class="rwd-Reviews">
-                <h2 class="rwd-Reviews_Headline">Praise for the 4th Edition</h2>
-                <div class="rwd-Reviews_Container">
-                    <ul class="rwd-Reviews_Inner">
-                        <li class="rwd-Review">
-                            <blockquote>
-                                This would not only be an amazing primer for a
-                                beginner but serves as a reminder/recap of basic
-                                to advanced concepts even for a more seasoned
-                                person like me who understands HTML and CSS at a
-                                more intermediate level.
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.com/gp/customer-reviews/R2335XYYTK55MV/"
-                                >
-                                    Erik Sagen
-                                </a>
-                            </p>
-                        </li>
-                        <li class="rwd-Review">
-                            <blockquote>
-                                I found this book to be a fabulous resource for
-                                anyone wanting to dive into the specifics of
-                                responsive web design.
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.com/gp/customer-reviews/R3QL122I83VVXH/"
-                                >
-                                    Lisa Friedrichsen
-                                </a>
-                            </p>
-                        </li>
-                        <li class="rwd-Review">
-                            <blockquote>
-                                Ben's 4th edition is a wonderful continuation of
-                                thoughts, experiences, and lessons learned in
-                                today's world of web design and
-                                development...Whether you're new to design or
-                                decades into your career, this book is a
-                                must-read.
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.co.uk/gp/customer-reviews/R19JB8QHWG8C1G/"
-                                >
-                                    Søren Fife
-                                </a>
-                            </p>
-                        </li>
-                        <li class="rwd-Review">
-                            <blockquote>
-                                It's impressive how many aspects are covered:
-                                Media queries, fluid layout, CSS grid,
-                                aesthetics with CSS, SVG, etc, etc!
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.co.uk/gp/customer-reviews/R3R6H0PTRZRFL1/"
-                                >
-                                    Keith Atherton
-                                </a>
-                            </p>
-                        </li>
-                        <li class="rwd-Review">
-                            <blockquote>
-                                Besides being technically valuable, the book is
-                                enjoyable to read, with a nice mix of wry humor
-                                and a relaxed style that doesn't get in the way
-                                of the information.
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.com/gp/customer-reviews/RSOUCI5SUJGL7/"
-                                >
-                                    Douglas K. Farrel
-                                </a>
-                            </p>
-                        </li>
-                        <li class="rwd-Review">
-                            <blockquote>
-                                Do yourself a favor and don't skip the
-                                fundamentals. Don't just jump into a front end
-                                framework. Well round yourself with this book so
-                                that you can catapult yourself into seniority or
-                                your next job.
-                                <span class="rwd-Review_Stars">
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                    <svg class="rwd-Review_Star">
-                                        <use xlink:href="#star"></use>
-                                    </svg>
-                                </span>
-                            </blockquote>
-                            <p>
-                                –
-                                <a
-                                    href="https://www.amazon.com/gp/customer-reviews/R2WLMDUKX1RQOG/"
-                                >
-                                    Andre Thomas
-                                </a>
-                            </p>
-                        </li>
-                    </ul>
+        </section>
+
+        <section id="about" class="rwd-About">
+            <div class="rwd-About_Minor">
+                <svg class="rwd-About_SVG-pages">
+                    <use xlink:href="#pages"></use>
+                </svg>
+                <h5 class="rwd-About_MinorTitle">450+ Info Packed Pages</h5>
+                <p>
+                    CSS Cascade Layers, Container Queries, color functions,
+                    Media Queries, SVG, animations, transforms,
+                    accessibility, Flexbox, Grid + Subgrid, Scroll Snap and
+                    much, much more.
+                </p>
+            </div>
+            <div class="rwd-About_Minor">
+                <svg class="rwd-About_SVG-code">
+                    <use xlink:href="#code"></use>
+                </svg>
+                <h5 class="rwd-About_MinorTitle">Sample Code</h5>
+                <p>
+                    Each chapter has associated code examples to follow
+                    along with. You also get the source code for this site
+                    which utilises many of the techniques you'll master
+                    throughout.
+                </p>
+            </div>
+            <div class="rwd-About_Minor">
+                <svg class="rwd-About_SVG-4th">
+                    <use xlink:href="#4th"></use>
+                </svg>
+
+                <h5 class="rwd-About_MinorTitle">Latest Edition</h5>
+                <p>
+                    The 4th Edition of Packt’s best-selling Responsive Web
+                    Design title since 2012. Updated for 2022 and beyond,
+                    including all the essential new CSS and HTML features.
+                </p>
+            </div>
+            <div class="rwd-About_Major">
+                <h5 class="rwd-About_MajorTitle">Is it for you?</h5>
+                <p>
+                    Are you a full-stack developer who needs to boost their
+                    front-end skills? Perhaps you work on the front-end and
+                    you need a definitive overview of all modern HTML and
+                    CSS has to offer?
+                </p>
+
+                <p>
+                    Maybe you have done a little website building but you
+                    need a deep understanding of how responsive web designs
+                    work and how to achieve them? This is a book for you!
+                </p>
+                <p>
+                    Still not sure?
+                    <a href="assets/chapter1.pdf">
+                        Download the first chapter, FREE, now
+                    </a>
+                    and see if it speaks to you.
+                </p>
+            </div>
+            <div class="rwd-About_Major">
+                <h5 class="rwd-About_MajorTitle">What will you learn?</h5>
+                <p>
+                    Understand the most fundamental parts of building a
+                    modern web site or application that will work across all
+                    devices. You'll learn the best approaches for having a
+                    fast and accessible website that works just as well on
+                    the latest iPhone or Android as a desktop computer.
+                </p>
+                <p>
+                    The book covers everything from choosing the right tag
+                    to mark up content, to understanding the benefits of
+                    modern image formats like AVIF and WebP &mdash; and
+                    everything essential in-between. It also covers all the
+                    latest features of CSS: Custom Properties, variable
+                    fonts, CSS Grid and much, much more.
+                </p>
+            </div>
+        </section>
+        <div id="buy" class="rwd-Buy">
+            <a href="https://www.packtpub.com/product/responsive-web-design-with-html5-and-css-fourth-edition/9781803242712"
+                class="rwd-Buy_Link rwd-Buy_Link-packt">
+                Buy from Packt
+            </a>
+            <a href="https://www.amazon.com/Responsive-Web-Design-HTML5-CSS/dp/180324271X/"
+                class="rwd-Buy_Link rwd-Buy_Link-packt">
+                Buy from Amazon
+            </a>
+            <a href="#" class="rwd-TopBtn">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <title>circle-up</title>
+                    <path
+                        d="M0 16c0 8.837 7.163 16 16 16s16-7.163 16-16-7.163-16-16-16-16 7.163-16 16zM29 16c0 7.18-5.82 13-13 13s-13-5.82-13-13 5.82-13 13-13 13 5.82 13 13z">
+                    </path>
+                    <path d="M22.086 20.914l2.829-2.829-8.914-8.914-8.914 8.914 2.828 2.828 6.086-6.086z"></path>
+                </svg>
+            </a>
+        </div>
+        <section id="reviews" class="rwd-Reviews">
+            <h2 class="rwd-Reviews_Headline">Praise for the 4th Edition</h2>
+            <div class="rwd-Reviews_Container">
+                <ul class="rwd-Reviews_Inner">
+                    <li class="rwd-Review">
+                        <blockquote>
+                            This would not only be an amazing primer for a
+                            beginner but serves as a reminder/recap of basic
+                            to advanced concepts even for a more seasoned
+                            person like me who understands HTML and CSS at a
+                            more intermediate level.
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.com/gp/customer-reviews/R2335XYYTK55MV/">
+                                Erik Sagen
+                            </a>
+                        </p>
+                    </li>
+                    <li class="rwd-Review">
+                        <blockquote>
+                            I found this book to be a fabulous resource for
+                            anyone wanting to dive into the specifics of
+                            responsive web design.
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.com/gp/customer-reviews/R3QL122I83VVXH/">
+                                Lisa Friedrichsen
+                            </a>
+                        </p>
+                    </li>
+                    <li class="rwd-Review">
+                        <blockquote>
+                            Ben's 4th edition is a wonderful continuation of
+                            thoughts, experiences, and lessons learned in
+                            today's world of web design and
+                            development...Whether you're new to design or
+                            decades into your career, this book is a
+                            must-read.
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.co.uk/gp/customer-reviews/R19JB8QHWG8C1G/">
+                                Søren Fife
+                            </a>
+                        </p>
+                    </li>
+                    <li class="rwd-Review">
+                        <blockquote>
+                            It's impressive how many aspects are covered:
+                            Media queries, fluid layout, CSS grid,
+                            aesthetics with CSS, SVG, etc, etc!
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.co.uk/gp/customer-reviews/R3R6H0PTRZRFL1/">
+                                Keith Atherton
+                            </a>
+                        </p>
+                    </li>
+                    <li class="rwd-Review">
+                        <blockquote>
+                            Besides being technically valuable, the book is
+                            enjoyable to read, with a nice mix of wry humor
+                            and a relaxed style that doesn't get in the way
+                            of the information.
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.com/gp/customer-reviews/RSOUCI5SUJGL7/">
+                                Douglas K. Farrel
+                            </a>
+                        </p>
+                    </li>
+                    <li class="rwd-Review">
+                        <blockquote>
+                            Do yourself a favor and don't skip the
+                            fundamentals. Don't just jump into a front end
+                            framework. Well round yourself with this book so
+                            that you can catapult yourself into seniority or
+                            your next job.
+                            <span class="rwd-Review_Stars">
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                                <svg class="rwd-Review_Star">
+                                    <use xlink:href="#star"></use>
+                                </svg>
+                            </span>
+                        </blockquote>
+                        <p>
+                            –
+                            <a href="https://www.amazon.com/gp/customer-reviews/R2WLMDUKX1RQOG/">
+                                Andre Thomas
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <button class="rwd-Review_QuoteActionBtn" id="quotePrev" type="button" disabled>
+                <svg class="rwd-Review_QuoteActionSVG">
+                    <use xlink:href="#left-arrow"></use>
+                </svg>
+                Prev
+            </button>
+            <button class="rwd-Review_QuoteActionBtn" id="quoteNext" type="button">
+                Next
+                <svg class="rwd-Review_QuoteActionSVG">
+                    <use xlink:href="#right-arrow"></use>
+                </svg>
+            </button>
+        </section>
+        <section id="new" class="rwd-New">
+            <h2 class="rwd-New_Headline">New in the 4th Edition</h2>
+            <div class="rwd-New_IntroText">
+                <p class="rwd-New_Intro">
+                    If you’ve only read an earlier Edition, you may be
+                    wondering if it’s worth your while.
+                </p>
+                <p class="rwd-New_Intro">
+                    Here’s a selection of the new topics covered in the 4th
+                    Edition, in no particular order:
+                </p>
+            </div>
+            <ul class="rwd-New_Bullets">
+                <li class="rwd-New_Bullet">CSS Layers</li>
+                <li class="rwd-New_Bullet">CSS Container Queries</li>
+                <li class="rwd-New_Bullet">
+                    New color functions and formats like P3 and LCH
+                </li>
+                <li class="rwd-New_Bullet">
+                    <code>has()</code>
+                    ,
+                    <code>where()</code>
+                    and
+                    <code>is()</code>
+                    selectors
+                </li>
+                <li class="rwd-New_Bullet">CSS Nesting</li>
+                <li class="rwd-New_Bullet">The dialog element</li>
+                <li class="rwd-New_Bullet">
+                    <code>clamp()</code>
+                    ,
+                    <code>min()</code>
+                    and
+                    <code>max()</code>
+                </li>
+                <li class="rwd-New_Bullet">AVIF and WebP image formats</li>
+            </ul>
+            <div class="rwd-New_Media">
+                <div class="rwd-New_Images">
+                    <picture class="rwd-New_Img">
+                        <source srcset="inside1.avif" type="image/avif" />
+                        <source srcset="inside1.webp" type="image/webp" />
+                        <img src="inside1.jpg"
+                            alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
+                            loading="lazy" />
+                    </picture>
+                    <picture class="rwd-New_Img">
+                        <source srcset="inside2.avif" type="image/avif" />
+                        <source srcset="inside2.webp" type="image/webp" />
+                        <img src="inside2.jpg"
+                            alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
+                            loading="lazy" />
+                    </picture>
+                    <picture class="rwd-New_Img">
+                        <source srcset="inside3.avif" type="image/avif" />
+                        <source srcset="inside3.webp" type="image/webp" />
+                        <img src="inside3.jpg"
+                            alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
+                            loading="lazy" />
+                    </picture>
+                    <picture class="rwd-New_Img">
+                        <source srcset="inside4.avif" type="image/avif" />
+                        <source srcset="inside4.webp" type="image/webp" />
+                        <img src="inside4.jpg"
+                            alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
+                            loading="lazy" />
+                    </picture>
+                    <picture class="rwd-New_Img">
+                        <source srcset="inside5.avif" type="image/avif" />
+                        <source srcset="inside5.webp" type="image/webp" />
+                        <img src="inside5.jpg"
+                            alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
+                            loading="lazy" />
+                    </picture>
                 </div>
-                <button
-                    class="rwd-Review_QuoteActionBtn"
-                    id="quotePrev"
-                    type="button"
-                    disabled
-                >
-                    <svg class="rwd-Review_QuoteActionSVG">
+                <button class="rwd-New_ActionBtn" id="imgPrev" type="button" disabled>
+                    <svg class="rwd-New_ActionSVG">
                         <use xlink:href="#left-arrow"></use>
                     </svg>
                     Prev
                 </button>
-                <button
-                    class="rwd-Review_QuoteActionBtn"
-                    id="quoteNext"
-                    type="button"
-                >
+                <button class="rwd-New_ActionBtn" id="imgNext" type="button">
                     Next
-                    <svg class="rwd-Review_QuoteActionSVG">
+                    <svg class="rwd-New_ActionSVG">
                         <use xlink:href="#right-arrow"></use>
                     </svg>
                 </button>
-            </section>
-            <section id="new" class="rwd-New">
-                <h2 class="rwd-New_Headline">New in the 4th Edition</h2>
-                <div class="rwd-New_IntroText">
-                    <p class="rwd-New_Intro">
-                        If you’ve only read an earlier Edition, you may be
-                        wondering if it’s worth your while.
-                    </p>
-                    <p class="rwd-New_Intro">
-                        Here’s a selection of the new topics covered in the 4th
-                        Edition, in no particular order:
-                    </p>
-                </div>
-                <ul class="rwd-New_Bullets">
-                    <li class="rwd-New_Bullet">CSS Layers</li>
-                    <li class="rwd-New_Bullet">CSS Container Queries</li>
-                    <li class="rwd-New_Bullet">
-                        New color functions and formats like P3 and LCH
-                    </li>
-                    <li class="rwd-New_Bullet">
-                        <code>has()</code>
-                        ,
-                        <code>where()</code>
-                        and
-                        <code>is()</code>
-                        selectors
-                    </li>
-                    <li class="rwd-New_Bullet">CSS Nesting</li>
-                    <li class="rwd-New_Bullet">The dialog element</li>
-                    <li class="rwd-New_Bullet">
-                        <code>clamp()</code>
-                        ,
-                        <code>min()</code>
-                        and
-                        <code>max()</code>
-                    </li>
-                    <li class="rwd-New_Bullet">AVIF and WebP image formats</li>
-                </ul>
-                <div class="rwd-New_Media">
-                    <div class="rwd-New_Images">
-                        <picture class="rwd-New_Img">
-                            <source srcset="inside1.avif" type="image/avif" />
-                            <source srcset="inside1.webp" type="image/webp" />
-                            <img
-                                src="inside1.jpg"
-                                alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
-                                loading="lazy"
-                            />
-                        </picture>
-                        <picture class="rwd-New_Img">
-                            <source srcset="inside2.avif" type="image/avif" />
-                            <source srcset="inside2.webp" type="image/webp" />
-                            <img
-                                src="inside2.jpg"
-                                alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
-                                loading="lazy"
-                            />
-                        </picture>
-                        <picture class="rwd-New_Img">
-                            <source srcset="inside3.avif" type="image/avif" />
-                            <source srcset="inside3.webp" type="image/webp" />
-                            <img
-                                src="inside3.jpg"
-                                alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
-                                loading="lazy"
-                            />
-                        </picture>
-                        <picture class="rwd-New_Img">
-                            <source srcset="inside4.avif" type="image/avif" />
-                            <source srcset="inside4.webp" type="image/webp" />
-                            <img
-                                src="inside4.jpg"
-                                alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
-                                loading="lazy"
-                            />
-                        </picture>
-                        <picture class="rwd-New_Img">
-                            <source srcset="inside5.avif" type="image/avif" />
-                            <source srcset="inside5.webp" type="image/webp" />
-                            <img
-                                src="inside5.jpg"
-                                alt="Example page from inside the book Responsive Web Design with HTML5 and CSS"
-                                loading="lazy"
-                            />
-                        </picture>
+            </div>
+        </section>
+        <section id="mailing" class="rwd-Mailing">
+            <h2 class="rwd-Mailing_Headline">Mailing List</h2>
+            <div class="rwd-Mailing_IntroAndForm">
+                <label for="mce-EMAIL" class="rwd-Mailing_Intro">
+                    Want updates from the author, Ben Frain? Subscribe to
+                    the infrequent newsletter &mdash; no spam, unsubscribe
+                    any time.
+                </label>
+
+                <form class="rwd-Mailing_Form"
+                    action="https://benfrain.us19.list-manage.com/subscribe/post?u=906ec14e977f8fce87751d6f1&amp;id=becad47daa"
+                    method="post">
+                    <input type="email" value="" id="mce-EMAIL" class="rwd-Mailing_Input" />
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display: none"></div>
+                        <div class="response" id="mce-success-response" style="display: none"></div>
                     </div>
-                    <button
-                        class="rwd-New_ActionBtn"
-                        id="imgPrev"
-                        type="button"
-                        disabled
-                    >
-                        <svg class="rwd-New_ActionSVG">
-                            <use xlink:href="#left-arrow"></use>
-                        </svg>
-                        Prev
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px" aria-hidden="true">
+                        <input type="text" name="b_906ec14e977f8fce87751d6f1_becad47daa" tabindex="-1" value="" />
+                    </div>
+                    <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                        class="rwd-Mailing_Subscribe">
+                        Subscribe
                     </button>
-                    <button
-                        class="rwd-New_ActionBtn"
-                        id="imgNext"
-                        type="button"
-                    >
-                        Next
-                        <svg class="rwd-New_ActionSVG">
-                            <use xlink:href="#right-arrow"></use>
-                        </svg>
-                    </button>
-                </div>
-            </section>
-            <section id="mailing" class="rwd-Mailing">
-                <h2 class="rwd-Mailing_Headline">Mailing List</h2>
-                <div class="rwd-Mailing_IntroAndForm">
-                    <label for="mce-EMAIL" class="rwd-Mailing_Intro">
-                        Want updates from the author, Ben Frain? Subscribe to
-                        the infrequent newsletter &mdash; no spam, unsubscribe
-                        any time.
-                    </label>
-
-                    <form
-                        class="rwd-Mailing_Form"
-                        action="https://benfrain.us19.list-manage.com/subscribe/post?u=906ec14e977f8fce87751d6f1&amp;id=becad47daa"
-                        method="post"
-                    >
-                        <input
-                            type="email"
-                            value=""
-                            id="mce-EMAIL"
-                            class="rwd-Mailing_Input"
-                        />
-                        <div id="mce-responses" class="clear">
-                            <div
-                                class="response"
-                                id="mce-error-response"
-                                style="display: none"
-                            ></div>
-                            <div
-                                class="response"
-                                id="mce-success-response"
-                                style="display: none"
-                            ></div>
-                        </div>
-                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                        <div
-                            style="position: absolute; left: -5000px"
-                            aria-hidden="true"
-                        >
-                            <input
-                                type="text"
-                                name="b_906ec14e977f8fce87751d6f1_becad47daa"
-                                tabindex="-1"
-                                value=""
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            value="Subscribe"
-                            name="subscribe"
-                            id="mc-embedded-subscribe"
-                            class="rwd-Mailing_Subscribe"
-                        >
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
-            </section>
-            <section id="chapters" class="rwd-Chapters">
-                <h2 class="rwd-Chapters_Headline">Full Chapter List</h2>
-                <ol class="rwd-Chapters_List">
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            The Essentials of Responsive Web Design
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            By the end of this first chapter, you will have made
-                            a fully responsive web page. Along the way you will
-                            gain the understanding of where Responsive Web
-                            Design came from, the problems it solves, and the
-                            core tenets of implementing a Responsive Web Design
-                            with HTML and CSS.
-                        </p>
-                        <a
-                            href="assets/chapter1.pdf"
-                            class="rwd-Chapter_Download"
-                        >
-                            Download this chapter FREE
-                        </a>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">Writing HTML markup</h3>
-                        <p class="rwd-Chapter_Content">
-                            Good HTML markup is the basis for any good web site
-                            or application. More importantly, HTML provides a
-                            bedrock of understanding for assistive technology.
-                            In this chapter you'll learn about everything from
-                            the opening
-                            <code class="rwd-Chapter_Code">
-                                &lt;!DOCTYPE html&gt;
-                            </code>
-                            to the closing
-                            <code>&lt/html&gt</code>
-                            tag.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Media Queries and Container Queries
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            Media queries provide the means to change styles on
-                            screen width, screen height, color preference,
-                            screen density (DPI) and a whole lot more. In this
-                            Chapter, you'll also learn about CSS4 media queries
-                            like
-                            <code>hover</code>
-                            and
-                            <code>pointer</code>
-                            . We end the chapter with an overview of the
-                            forthcoming Container Queries; before long, we will
-                            be able to make container level style changes too.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Fluid Layout and Flexbox
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            We start with understanding how to convert any web
-                            design into a proportional, fluid, layout. Then a
-                            deep-dive into Flexbox; the most widely supported
-                            modern CSS layout system. You'll learn not just the
-                            syntax but also a number of use cases of Flexbox.
-                            Then you'll get your hands dirty; using what you
-                            have learned to lay out sections of this very site.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">Layout with CSS Grid</h3>
-                        <p class="rwd-Chapter_Content">
-                            CSS Grid is the first 2-dimensional layout system
-                            for the web. This whole chapter is dedicated to
-                            understanding the capabilities and efficiencies of
-                            CSS Grid. We'll also get to grips with the new
-                            <code>subgrid</code>
-                            property.
-                        </p>
-                        <p class="rwd-Chapter_Content">
-                            Understanding CSS Grid might just be the single
-                            biggest upgrade you can give your CSS skills!
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            CSS Selectors, Typography and More
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            In this dense and varied chapter you'll be learning
-                            about the latest CSS selectors, like
-                            <code>is()</code>
-                            ,
-                            <code>where(</code>
-                            ), and
-                            <code>has()</code>
-                            . Then you'll get to grips with new viewport-related
-                            units like
-                            <code>dvh</code>
-                            , and
-                            <code>dvw</code>
-                            . You'll also learn about typography on the web,
-                            covering variable fonts and the different methods of
-                            optimising font loading.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">CSS Color</h3>
-                        <p class="rwd-Chapter_Content">
-                            You'll learn how to add an alpha channel to hex,
-                            <code>rgb</code>
-                            and
-                            <code>hsl</code>
-                            and learn how to use the newer, comma-less syntax.
-                        </p>
-                        <p class="rwd-Chapter_Content">
-                            You'll learn about
-                            <code>P3</code>
-                            color, and how to add vibrant new colors you just
-                            can't express with
-                            <code>rgb</code>
-                            ,
-                            <code>hsl</code>
-                            or
-                            <code>hex</code>
-                            . Then we move on to look at newer ways of
-                            expressing color such as Lab/LCH and new color
-                            functions including
-                            <code>color-mix()</code>
-                            and
-                            <code>color-contrast()</code>
-                            .
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Stunning Aesthetics with CSS
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            Another chapter bursting with CSS goodness. Want to
-                            know about text and box shadows? What about multiple
-                            backgrounds and linear and radial gradients?
-                            Repeating gradients? CSS filters like blur and
-                            sepia? Masks and Clipping? Mix-blend modes? It's all
-                            in here. And more besides!
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">Responsive Images</h3>
-                        <p class="rwd-Chapter_Content">
-                            The single biggest asset type on the web is images.
-                            It therefore stands to reason we should have a
-                            chapter dedicated to the most efficient ways of
-                            serving images up to users. You'll also learn about
-                            the benefits of newer image formats like WebP and
-                            AVIF and how to make them available for the browsers
-                            that support them while still providing an
-                            alternative for those that don't.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">SVG</h3>
-                        <p class="rwd-Chapter_Content">
-                            SVGs are an essential part of a responsive
-                            developer's toolkit. You'll learn about practical
-                            use-cases for SVG; how to insert SVGs directly into
-                            markup, inside an object element, as a background
-                            image and standard image. You'll also learn about
-                            how to use an SVG sprite sheet, and how SVGs can be
-                            animated and optimised for use on the web.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Transitions, Transformations and Animations
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            Transitions, transformations and animations, when
-                            used judiciously, can really bring a design to life.
-                            In this chapter you'll learn about all three. Before
-                            the chapter is done you'll be flipping things back
-                            and forth in 3d space and using transforms to create
-                            a progressively enhanced off-canvas navigation
-                            pattern.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Custom Properties and CSS Functions
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            In this chapter you'll learn about the super-powers
-                            of Custom Properties. You'll learn how to set and
-                            read them in CSS and JavaScript, applicable use
-                            cases, and how to make use of them inside values and
-                            functions. You'll also learn how to make use of
-                            newer CSS functions like
-                            <code>min()</code>
-                            ,
-                            <code>max()</code>
-                            , and
-                            <code>clamp()</code>
-                            and understand how they are a perfect tool to deal
-                            with fluid typography in responsive design.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">Forms</h3>
-                        <p class="rwd-Chapter_Content">
-                            This chapter covers everything you are likely to
-                            need to know about forms. Topics include accessible
-                            form structure, the various elements of forms, form
-                            validation and the most recent CSS that allows
-                            better control of form visuals than ever before. Oh,
-                            and lots of handy attributes to make the right
-                            keyboard appear on iOS and Android devices too!
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Cutting-Edge CSS Features
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            You're going to learn about two recent additions to
-                            CSS in this chapter. One, CSS Layers, is already
-                            shipping and allows you more 'architectural' control
-                            over your stylesheets than ever before. The second
-                            is CSS Nesting. If you've ever worked with
-                            'super-set' languages like Sass you will understand
-                            the benefits. Nesting hasn't shipped in browsers
-                            yet, and the specification is subject to change but
-                            it is so important that we take an early look here.
-                        </p>
-                    </li>
-                    <li class="rwd-Chapter">
-                        <h3 class="rwd-Chapter_Title">
-                            Bonus techniques and parting advice
-                        </h3>
-                        <p class="rwd-Chapter_Content">
-                            In the final chapter we will bring together all the
-                            knowledge learned so far and consider how best to
-                            approach a responsive project. We also consider some
-                            best-practice techniques to get your responsive
-                            projects off to the best possible start. And just
-                            like 'Q' in James Bond, I won't let you leave
-                            without a few extra special techniques to help you
-                            in the field.
-                        </p>
-                    </li>
-                </ol>
-            </section>
-            <footer class="rwd-Footer">
-                <section class="rwd-Footer_Block">
-                    <h4 class="rwd-Footer_SectionTitle">About</h4>
-                    <p class="rwd-Footer_Text">
-                        This site supports the book, Responsive Web Design with
-                        HTML5 and CSS, 4th Edition
+                </form>
+            </div>
+        </section>
+        <section id="chapters" class="rwd-Chapters">
+            <h2 class="rwd-Chapters_Headline">Full Chapter List</h2>
+            <ol class="rwd-Chapters_List">
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        The Essentials of Responsive Web Design
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        By the end of this first chapter, you will have made
+                        a fully responsive web page. Along the way you will
+                        gain the understanding of where Responsive Web
+                        Design came from, the problems it solves, and the
+                        core tenets of implementing a Responsive Web Design
+                        with HTML and CSS.
                     </p>
-
-                    <p class="rwd-Footer_Text">ISBN 978-1-83921-156-0</p>
-                    <p class="rwd-Footer_Text">
-                        Fourth Edition published by Packt Publishing 2020.
+                    <a href="assets/chapter1.pdf" class="rwd-Chapter_Download">
+                        Download this chapter FREE
+                    </a>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">Writing HTML markup</h3>
+                    <p class="rwd-Chapter_Content">
+                        Good HTML markup is the basis for any good web site
+                        or application. More importantly, HTML provides a
+                        bedrock of understanding for assistive technology.
+                        In this chapter you'll learn about everything from
+                        the opening
+                        <code class="rwd-Chapter_Code">
+                            &lt;!DOCTYPE html&gt;
+                        </code>
+                        to the closing
+                        <code>&lt;/html&gt;</code>
+                        tag.
                     </p>
-
-                    <a
-                        class="rwd-Footer_Link"
-                        href="https://github.com/benfrain/rwd4/tree/master/rwd.education"
-                    >
-                        Website source code
-                    </a>
-                    <small class="rwd-Copyright">
-                        &copy; copyright 2022 Ben Frain. All rights reserved.
-                    </small>
-                </section>
-                <section class="rwd-Footer_Block">
-                    <h4 class="rwd-Footer_SectionTitle">Buy</h4>
-                    <a
-                        class="rwd-Footer_Link"
-                        href="https://www.amazon.com/Responsive-Web-Design-HTML5-CSS/dp/180324271X/"
-                    >
-                        Amazon US
-                    </a>
-                    <a
-                        class="rwd-Footer_Link"
-                        href="https://www.amazon.co.uk/Responsive-Web-Design-HTML5-CSS/dp/180324271X/"
-                    >
-                        Amazon UK
-                    </a>
-                    <a
-                        class="rwd-Footer_Link"
-                        href="https://www.packtpub.com/product/responsive-web-design-with-html5-and-css-fourth-edition/9781803242712"
-                    >
-                        Packt
-                    </a>
-                </section>
-                <section class="rwd-Footer_Block rwd-Footer_Block-contact">
-                    <h4 class="rwd-Footer_SectionTitle">Contact</h4>
-                    <a
-                        href="https://twitter.com/benfrain"
-                        class="rwd-Footer_Link"
-                    >
-                        @benfrain on Twitter
-                    </a>
-                    <a
-                        href="https://github.com/benfrain"
-                        class="rwd-Footer_Link"
-                    >
-                        @benfrain on GitHub
-                    </a>
-                    <p class="rwd-Footer_Text">
-                        Email: contact (at) benfrain dot com
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Media Queries and Container Queries
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        Media queries provide the means to change styles on
+                        screen width, screen height, color preference,
+                        screen density (DPI) and a whole lot more. In this
+                        Chapter, you'll also learn about CSS4 media queries
+                        like
+                        <code>hover</code>
+                        and
+                        <code>pointer</code>
+                        . We end the chapter with an overview of the
+                        forthcoming Container Queries; before long, we will
+                        be able to make container level style changes too.
                     </p>
-                </section>
-            </footer>
-        </main>
-        <script src="./src/rwd.ts" type="module"></script>
-    </body>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Fluid Layout and Flexbox
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        We start with understanding how to convert any web
+                        design into a proportional, fluid, layout. Then a
+                        deep-dive into Flexbox; the most widely supported
+                        modern CSS layout system. You'll learn not just the
+                        syntax but also a number of use cases of Flexbox.
+                        Then you'll get your hands dirty; using what you
+                        have learned to lay out sections of this very site.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">Layout with CSS Grid</h3>
+                    <p class="rwd-Chapter_Content">
+                        CSS Grid is the first 2-dimensional layout system
+                        for the web. This whole chapter is dedicated to
+                        understanding the capabilities and efficiencies of
+                        CSS Grid. We'll also get to grips with the new
+                        <code>subgrid</code>
+                        property.
+                    </p>
+                    <p class="rwd-Chapter_Content">
+                        Understanding CSS Grid might just be the single
+                        biggest upgrade you can give your CSS skills!
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        CSS Selectors, Typography and More
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        In this dense and varied chapter you'll be learning
+                        about the latest CSS selectors, like
+                        <code>is()</code>
+                        ,
+                        <code>where(</code>
+                        ), and
+                        <code>has()</code>
+                        . Then you'll get to grips with new viewport-related
+                        units like
+                        <code>dvh</code>
+                        , and
+                        <code>dvw</code>
+                        . You'll also learn about typography on the web,
+                        covering variable fonts and the different methods of
+                        optimising font loading.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">CSS Color</h3>
+                    <p class="rwd-Chapter_Content">
+                        You'll learn how to add an alpha channel to hex,
+                        <code>rgb</code>
+                        and
+                        <code>hsl</code>
+                        and learn how to use the newer, comma-less syntax.
+                    </p>
+                    <p class="rwd-Chapter_Content">
+                        You'll learn about
+                        <code>P3</code>
+                        color, and how to add vibrant new colors you just
+                        can't express with
+                        <code>rgb</code>
+                        ,
+                        <code>hsl</code>
+                        or
+                        <code>hex</code>
+                        . Then we move on to look at newer ways of
+                        expressing color such as Lab/LCH and new color
+                        functions including
+                        <code>color-mix()</code>
+                        and
+                        <code>color-contrast()</code>
+                        .
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Stunning Aesthetics with CSS
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        Another chapter bursting with CSS goodness. Want to
+                        know about text and box shadows? What about multiple
+                        backgrounds and linear and radial gradients?
+                        Repeating gradients? CSS filters like blur and
+                        sepia? Masks and Clipping? Mix-blend modes? It's all
+                        in here. And more besides!
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">Responsive Images</h3>
+                    <p class="rwd-Chapter_Content">
+                        The single biggest asset type on the web is images.
+                        It therefore stands to reason we should have a
+                        chapter dedicated to the most efficient ways of
+                        serving images up to users. You'll also learn about
+                        the benefits of newer image formats like WebP and
+                        AVIF and how to make them available for the browsers
+                        that support them while still providing an
+                        alternative for those that don't.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">SVG</h3>
+                    <p class="rwd-Chapter_Content">
+                        SVGs are an essential part of a responsive
+                        developer's toolkit. You'll learn about practical
+                        use-cases for SVG; how to insert SVGs directly into
+                        markup, inside an object element, as a background
+                        image and standard image. You'll also learn about
+                        how to use an SVG sprite sheet, and how SVGs can be
+                        animated and optimised for use on the web.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Transitions, Transformations and Animations
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        Transitions, transformations and animations, when
+                        used judiciously, can really bring a design to life.
+                        In this chapter you'll learn about all three. Before
+                        the chapter is done you'll be flipping things back
+                        and forth in 3d space and using transforms to create
+                        a progressively enhanced off-canvas navigation
+                        pattern.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Custom Properties and CSS Functions
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        In this chapter you'll learn about the super-powers
+                        of Custom Properties. You'll learn how to set and
+                        read them in CSS and JavaScript, applicable use
+                        cases, and how to make use of them inside values and
+                        functions. You'll also learn how to make use of
+                        newer CSS functions like
+                        <code>min()</code>
+                        ,
+                        <code>max()</code>
+                        , and
+                        <code>clamp()</code>
+                        and understand how they are a perfect tool to deal
+                        with fluid typography in responsive design.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">Forms</h3>
+                    <p class="rwd-Chapter_Content">
+                        This chapter covers everything you are likely to
+                        need to know about forms. Topics include accessible
+                        form structure, the various elements of forms, form
+                        validation and the most recent CSS that allows
+                        better control of form visuals than ever before. Oh,
+                        and lots of handy attributes to make the right
+                        keyboard appear on iOS and Android devices too!
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Cutting-Edge CSS Features
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        You're going to learn about two recent additions to
+                        CSS in this chapter. One, CSS Layers, is already
+                        shipping and allows you more 'architectural' control
+                        over your stylesheets than ever before. The second
+                        is CSS Nesting. If you've ever worked with
+                        'super-set' languages like Sass you will understand
+                        the benefits. Nesting hasn't shipped in browsers
+                        yet, and the specification is subject to change but
+                        it is so important that we take an early look here.
+                    </p>
+                </li>
+                <li class="rwd-Chapter">
+                    <h3 class="rwd-Chapter_Title">
+                        Bonus techniques and parting advice
+                    </h3>
+                    <p class="rwd-Chapter_Content">
+                        In the final chapter we will bring together all the
+                        knowledge learned so far and consider how best to
+                        approach a responsive project. We also consider some
+                        best-practice techniques to get your responsive
+                        projects off to the best possible start. And just
+                        like 'Q' in James Bond, I won't let you leave
+                        without a few extra special techniques to help you
+                        in the field.
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <footer class="rwd-Footer">
+            <section class="rwd-Footer_Block">
+                <h4 class="rwd-Footer_SectionTitle">About</h4>
+                <p class="rwd-Footer_Text">
+                    This site supports the book, Responsive Web Design with
+                    HTML5 and CSS, 4th Edition
+                </p>
+
+                <p class="rwd-Footer_Text">ISBN 978-1-83921-156-0</p>
+                <p class="rwd-Footer_Text">
+                    Fourth Edition published by Packt Publishing 2020.
+                </p>
+
+                <a class="rwd-Footer_Link" href="https://github.com/benfrain/rwd4/tree/master/rwd.education">
+                    Website source code
+                </a>
+                <small class="rwd-Copyright">
+                    &copy; copyright 2022 Ben Frain. All rights reserved.
+                </small>
+            </section>
+            <section class="rwd-Footer_Block">
+                <h4 class="rwd-Footer_SectionTitle">Buy</h4>
+                <a class="rwd-Footer_Link" href="https://www.amazon.com/Responsive-Web-Design-HTML5-CSS/dp/180324271X/">
+                    Amazon US
+                </a>
+                <a class="rwd-Footer_Link"
+                    href="https://www.amazon.co.uk/Responsive-Web-Design-HTML5-CSS/dp/180324271X/">
+                    Amazon UK
+                </a>
+                <a class="rwd-Footer_Link"
+                    href="https://www.packtpub.com/product/responsive-web-design-with-html5-and-css-fourth-edition/9781803242712">
+                    Packt
+                </a>
+            </section>
+            <section class="rwd-Footer_Block rwd-Footer_Block-contact">
+                <h4 class="rwd-Footer_SectionTitle">Contact</h4>
+                <a href="https://twitter.com/benfrain" class="rwd-Footer_Link">
+                    @benfrain on Twitter
+                </a>
+                <a href="https://github.com/benfrain" class="rwd-Footer_Link">
+                    @benfrain on GitHub
+                </a>
+                <p class="rwd-Footer_Text">
+                    Email: contact (at) benfrain dot com
+                </p>
+            </section>
+        </footer>
+    </main>
+    <script src="./src/rwd.ts" type="module"></script>
+</body>
+
 </html>
